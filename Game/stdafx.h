@@ -31,10 +31,18 @@
 
 #include <DXGIDebug.h>
 
+#include "d3dx12.h"
+#include "SimpleMath.h"
+
 using namespace DirectX;
 using namespace DirectX::PackedVector;
 
 using Microsoft::WRL::ComPtr;
+
+using Vec2 = DirectX::SimpleMath::Vector2;
+using Vec3 = DirectX::SimpleMath::Vector3;
+using Vec4 = DirectX::SimpleMath::Vector4;
+using Matrix = DirectX::SimpleMath::Matrix;
 
 #pragma comment(lib, "d3dcompiler.lib")
 #pragma comment(lib, "d3d12.lib")
@@ -44,3 +52,14 @@ using Microsoft::WRL::ComPtr;
 
 const int FRAME_BUFFER_WIDTH = 1920;
 const int FRAME_BUFFER_HEIGHT = 1080;
+
+enum
+{
+	SWAP_CHAIN_BUFFER_COUNT = 2,
+};
+
+struct Vertex
+{
+	Vec3 pos;
+	Vec4 color;
+};
